@@ -42,6 +42,6 @@ We compared our model with STGCN, DCRNN, AGCRN, WGC, Dysat, TGAT, GWN and CLCRN,
 
 
 ## Acknowledgement
-The project is developed based on [PM2.5-GNN](https://github.com/shuowang-ai/PM2.5-GNN), [Reformer](https://hackingsemantics.xyz/2019/leaderboards/) and [IDGL](https://github.com/hugochan/IDGL) for dynamic graph.
+The project is developed based on [PM2.5-GNN](https://github.com/shuowang-ai/PM2.5-GNN), [Reformer](https://github.com/google/trax/blob/master/trax/models/reformer/reformer.py) and [IDGL](https://github.com/hugochan/IDGL) for dynamic graph.
 
 
