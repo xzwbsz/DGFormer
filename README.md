@@ -1,9 +1,8 @@
 # DGFormer
-The source code of the SOTA Dynamic Graph Reformer model for weather station prediction.
+The source code of the SOTA Dynamic Graph Reformer (DGFormer) model for weather station prediction.
 
-# DCPGRN
-Dynamic Climate Pattern Graph Recurrent Network (DCPGRN) for meteorological forecasting
-This is a official pyTorch implementation of DCPGRN
+DGFormer is the update of Dynamic Climate Pattern Graph Recurrent Network (DCPGRN) for meteorological forecasting
+This is a official pyTorch implementation of DGFormer
 
 ![image](https://user-images.githubusercontent.com/44642002/236671358-363ebabf-0477-4258-97b8-39fd6904a005.png)
 
