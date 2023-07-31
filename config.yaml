@@ -1,0 +1,162 @@
+---
+experiments:
+#  metero_use: ['d2m',
+#               't2m',
+#               'skt',
+#               'stl1',
+#               'sp',
+#               'tp',]
+  metero_use: ['q',
+               'crwc',
+               't',
+               'u',
+               'v',]
+  pred_var: ['v']
+  save_npy: True
+  dataset_num: 1
+  # model: LS_GNN
+  model: IDGL
+
+train:
+  epochs: 50
+  exp_repeat: 10
+#  batch_size: 56
+#  hist_len: 5
+#  pred_len: 5
+  batch_size: 16
+  hist_len: 96
+  pred_len: 104
+  weight_decay: 0.0005
+  early_stop: 10
+  lr: 0.0005
+  optimizer: rmsprop
+  lr_patience: 2
+  lr_reduce_factor: 0.5
+  batch_epoch: 3
+
+filepath:
+  b216:
+    dataset1_fp: /climatedata/data2/autumn_data_2016_2022/20* # /climatedata/haojy/ls-gnn/data/dataset1.nc
+    results_dir: /climatedata/haojy/result/result_dataset2  # /climatedata/haojy/ls-gnn/result/result_dataset1
+  p40:
+    dataset1_fp: /data/haojy/2022/* # /home/xuzhewen/data2/climate_spring.grib
+    results_dir: /home/xuzhewen/haojy/Forcast6_8/result/result_dataset1
+  p40gnn:
+    dataset1_fp: /public/climatedata/2018/* # /home/xuzhewen/data2/climate_spring.grib
+    results_dir: /home/gnn/ForcastResult/result_dataset1
+  p40gnn2:
+    dataset1_fp: /public/climatedata-1000hpa/2018/* # /home/xuzhewen/data2/climate_spring.grib
+    results_dir: /home/gnn/ForcastResult/result_dataset1
+
+
+data:
+#  metero_var: ['d2m',
+#               't2m',
+#               'skt',
+#               'stl1',
+#               'sp',
+#               'tp',]
+  metero_var: [ 'ciwc',
+                'clwc',
+                'q',
+                'crwc',
+                't',
+                'u',
+                'v', ]
+
+dataset:
+  data_start: [[2018, 1, 1, 0, 0], GMT]
+#  data_end: [[2022, 12, 30, 21, 0], GMT]
+  data_end: [[2022, 11, 29, 21, 0], GMT]
+  start_month: 1
+  end_month: 12
+
+# 2021_6-8 class
+#  1:
+#    train_start: [ [ 2018, 1, 1, 0, 0 ], GMT ]
+#    train_end: [ [ 2020, 12, 12, 3, 0 ], GMT ]
+#    val_start: [ [ 2020, 12, 12, 6, 0 ], GMT ]
+#    val_end: [ [ 2021, 12, 30, 18, 0 ], GMT ]
+#    test_start: [ [ 2021, 12, 30, 21, 0 ], GMT ]
+#    test_end: [ [ 2022, 11, 29, 21, 0 ], GMT ]
+  1:
+    train_start: [ [ 2018, 1, 1, 0, 0 ], GMT ]
+    train_end: [ [ 2020, 12, 12, 3, 0 ], GMT ]
+    val_start: [ [ 2020, 12, 12, 6, 0 ], GMT ]
+    val_end: [ [ 2022, 6, 30, 18, 0 ], GMT ]
+    test_start: [ [ 2022, 7, 1, 3, 0 ], GMT ]
+    test_end: [ [ 2022, 9, 30, 21, 0 ], GMT ]
+
+idgl:
+  seed: 38
+  hidden_size: 5 #改feature数量需要改 5
+  graph_learn: True # False True
+  physics_guidance: True # True
+  graph_skip_conn: 0.8
+  graph_include_self: False
+  graph_model: ls-gnn # agrcn # ls-gnn # dcrnn # stgcn # clcrn
+  graph_learn_num_pers: 4
+  graph_metric_type: 'weighted_cosine'
+  graph_learn_topk: null
+  graph_learn_epsilon: 0
+  graph_learn_hidden_size: 70
+  graph_learn_regularization: True
+  patience: 100
+  max_epochs: 1000
+  verbose: 20
+  dropout: 0.5
+  feat_adj_dropout: 0.5 # 0.5
+  gl_dropout: 0.2
+  print_every_epochs: 500 # Print every X epochs
+  max_iter: 15 # gl最大轮次
+  smoothness_ratio: 0.2
+  degree_ratio: 0
+  sparsity_ratio: 0
+  eps_adj: 4e-5
+  update_adj_ratio: 0.1
+
+agcrn:
+  input_dim: 1
+  output_dim: 1
+  embed_dim: 10
+  rnn_units: 64
+  num_layers: 2
+  cheb_order: 2 # 切比雪夫项数
+  node_num: 142
+
+dcrnn:
+  cl_decay_steps: 1000
+  use_curriculum_learning: False
+  input_dim: 1
+  output_dim: 1
+  max_diffusion_step: 2
+  filter_type: random_walk
+  num_nodes: 142
+  num_rnn_layers: 2
+  rnn_units: 64
+
+stgcn:
+  Kt: 2
+  Ks: 3
+  stblock_num: 1
+  act_func: glu
+  graph_conv_type: graph_conv
+  gso_type: sym_norm_lap
+  enable_bias: True
+  droprate: 0.5
+  n_vertex: 142
+
+clcrn:
+  max_view: 2
+  cl_decay_steps: 1000
+  node_num: 142
+  layer_num: 2
+  rnn_units: 32
+  input_dim: 1
+  output_dim: 1
+  embed_dim: 16
+  location_dim: 2
+  hidden_units: 16
+  block_num: 2
+  use_curriculum_learning: False
+
