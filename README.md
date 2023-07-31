@@ -37,6 +37,7 @@ We are further developing the distributed version for a larger scale GNN model.
 
 ## Experiment Results
 We compared our model with STGCN, DCRNN, AGCRN, WGC, Dysat, TGAT, GWN and CLCRN, also with ECMWF (NWP method). The reslut shows that our model outperform others especially in temperature prediction
+![image](https://github.com/xzwbsz/DGFormer/assets/44642002/42dfd789-9b2a-4bd5-bf1d-a87159f15950)
 
 
 
