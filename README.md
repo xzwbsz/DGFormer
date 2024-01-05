@@ -21,7 +21,7 @@ Dependency can be installed using the following command:
 
 pip install -r requirements.txt
 
-## Data Preparaion
+## Data Preparation
 You can download our data from [google drive](https://blog.csdn.net/zhn11/article/details/128899461?spm=1001.2014.3001.5502), and put it into ./data dir.
 
 Download the dataset and copy it into data/ dir. And Unzip them.
