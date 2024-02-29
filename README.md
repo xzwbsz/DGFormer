@@ -22,7 +22,7 @@ Dependency can be installed using the following command:
 pip install -r requirements.txt
 
 ## Data Preparation
-You can download our data from [google drive]((https://drive.google.com/file/d/1VdY7Ow3EQw542cW3mlCqbrYSVDqoa0OB/view?usp=drive_link)) or , and put it into ./data dir.
+You can download our data from [google drive](https://drive.google.com/file/d/1STncxIvsnkt0sPXuNKaKmzsB7_jYlXVP/view?usp=drive_link) , and put it into ./data dir.
 
 Download the dataset and copy it into data/ dir. And Unzip them.
 
