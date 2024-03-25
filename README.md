@@ -18,9 +18,9 @@ torch>=1.7.0
 torch-geometric-temporal
 
 Dependency can be installed using the following command:
-
+```c
 pip install -r requirements.txt
-
+```
 ## Data Preparation
 You can download our data from [google drive](https://drive.google.com/file/d/1STncxIvsnkt0sPXuNKaKmzsB7_jYlXVP/view?usp=drive_link) , and put it into ./data dir.
 
@@ -30,9 +30,9 @@ To execute the baseline experiment, you can change the "graph_model",
 
 ## Training the Model
 The configuration is set in config.yaml file for training process. Run the following commands to train the target model.
-
+```c
 python train.py
-
+```
 We are further developing the distributed version for a larger scale GNN model.
 
 ## Experiment Results
